@@ -2,16 +2,7 @@ import React, { useEffect, useState, useRef } from "react";
 
 const UrlShortener = ({ setInputVal }) => {
   const [val, setVal] = useState("");
-  //   const inputRef = useRef();
-
-  //   useEffect(() => {
-  //     inputRef.current.addEventListener("myInput", function (event) {
-  //       if (event.key === "Enter") {
-  //         event.preventDefault();
-  //         document.getElementById("submitButton").onClick();
-  //       }
-  //     });
-  //   }, []);
+  const inputRef = useRef();
 
   //**** This won't work as its a react project ****/
 
@@ -35,16 +26,24 @@ const UrlShortener = ({ setInputVal }) => {
   return (
     <div className="inputContainer">
       <h1>URL Shortener</h1>
-      <input
-        type="text"
-        placeholder="Enter URL...."
-        value={val}
-        id="myInput"
-        onChange={(e) => setVal(e.target.value)}
-      />
-      <button id="submitButton" onClick={handleClick}>
-        Submit
-      </button>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          handleClick();
+        }}
+      >
+        <input
+          // ref={inputRef}
+          type="text"
+          placeholder="Enter URL...."
+          value={val}
+          id="myInput"
+          onChange={(e) => setVal(e.target.value)}
+        />
+        <button type="submit" id="submitButton" onClick={handleClick}>
+          Submit
+        </button>
+      </form>
     </div>
   );
 };
