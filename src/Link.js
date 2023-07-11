@@ -5,12 +5,25 @@ import CopyToClipboard from "react-copy-to-clipboard";
 import Copy from "./copy";
 const crypto = require("crypto");
 
+const getShortLinks = () => {
+  let storedLinks = localStorage.getItem("shortenLink");
+  //console.log(storedLinks);
+
+  if (storedLinks) {
+    return JSON.parse(localStorage.getItem("shortenLink"));
+  } else {
+    return [];
+  }
+};
+
 const Link = ({ inputVal }) => {
-  const [shortenLink, setShortenLink] = useState([]);
+  //const storedLinks = JSON.parse(localStorage.getItem("shortenLink"));
+
+  const [shortenLink, setShortenLink] = useState(getShortLinks());
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  const [links, setLinks] = useState([]);
+  //const [links, setLinks] = useState([]);
 
   //   const { createHash } = import("node:crypto");
 
@@ -29,8 +42,14 @@ const Link = ({ inputVal }) => {
       //const res = generateShortLink(inputVal);
       //console.log(res.data.result.full_short_link);
       // setShortenLink([...shortenLink, res.data.result.full_short_link]);
-      setShortenLink([...shortenLink, res.data.result.full_short_link]);
-      //localStorage.setItem("shortenLink", shortenLink);
+      setShortenLink((shortenLink) => {
+        const links = [...shortenLink, res.data.result.full_short_link];
+        localStorage.setItem("shortenLink", JSON.stringify(links));
+        return links;
+      });
+      //store each short link to loacl storage
+
+      //console.log(storedLinks);
     } catch (err) {
       setError(err);
     } finally {
