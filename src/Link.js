@@ -16,6 +16,17 @@ const getShortLinks = () => {
   }
 };
 
+const getOriginalLinks = () => {
+  let storedOrLinks = localStorage.getItem("originalLink");
+  //console.log(storedLinks);
+
+  if (storedOrLinks) {
+    return JSON.parse(localStorage.getItem("originalLink"));
+  } else {
+    return [];
+  }
+};
+
 const Link = ({ inputVal }) => {
   //const storedLinks = JSON.parse(localStorage.getItem("shortenLink"));
 
@@ -23,7 +34,7 @@ const Link = ({ inputVal }) => {
   const [copied, setCopied] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
-  //const [links, setLinks] = useState([]);
+  const [link, setLink] = useState(getOriginalLinks());
 
   //   const { createHash } = import("node:crypto");
 
@@ -37,6 +48,12 @@ const Link = ({ inputVal }) => {
         return shortLink;
         //return console.log(url);
       }
+
+      setLink((link) => {
+        const original_links = [...link, inputVal];
+        localStorage.setItem("originalLink", JSON.stringify(original_links));
+        return original_links;
+      });
       const res = await axios(`https://api.shrtco.de/v2/shorten
               ?url=${inputVal}`);
       //const res = generateShortLink(inputVal);
@@ -74,12 +91,15 @@ const Link = ({ inputVal }) => {
 
   //console.log(shortenLink);
   //console.log(localStorage.getItem("shortenLink"), "***");
-  console.log(shortenLink);
+  //console.log(inputVal);
+  //console.log(link);
 
   return (
     <>
       {shortenLink &&
         shortenLink.map((shorten, idx) => {
+          // let storedOrLinks = localStorage.getItem("originalLink");
+          //console.log(link[idx]);
           return (
             // <div className="link" key={idx}>
             //   <p>{shorten}</p>
@@ -88,7 +108,8 @@ const Link = ({ inputVal }) => {
             //     <button className={copied ? "copied" : ""}>Copy</button>
             //   </CopyToClipboard>
             // </div>
-            <Copy shorten={shorten} key={idx} />
+
+            <Copy shorten={shorten} key={idx} link={link[idx]} />
           );
         })}
     </>
