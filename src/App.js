@@ -9,7 +9,19 @@ function App() {
   return (
     <div className="bg-teal-500 text-gray-700 min-h-screen">
       <UrlShortener setInputVal={setInputVal} />
-      <div className="bg-emerald-100 m-12 p-4 rounded shadow-lg container mx-auto">
+      <div className="bg-teal-700 flex justify-center items-center grid grid-cols-3 mt-5 ml-48 mr-48 p-4 rounded-lg shadow-lg">
+        <h1 className="text-gray-700 font-sans font-semibold ml-56">
+          Original Link
+        </h1>
+        <h1 className="text-gray-700 font-sans font-semibold ml-48">
+          Short Link
+        </h1>
+        <h1 className="text-gray-700 font-sans font-semibold ml-24">
+          Copy Link
+        </h1>
+      </div>
+
+      <div className="bg-emerald-100 mt-5 ml-32 mr-32 p-4 rounded-lg shadow-lg">
         {/* <h2
           className={
             inputVal

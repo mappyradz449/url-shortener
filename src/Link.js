@@ -108,8 +108,10 @@ const Link = ({ inputVal }) => {
             //     <button className={copied ? "copied" : ""}>Copy</button>
             //   </CopyToClipboard>
             // </div>
-
-            <Copy shorten={shorten} key={idx} link={link[idx]} />
+            <div>
+              <Copy shorten={shorten} key={idx} link={link[idx]} />
+              <hr className="bg-teal-700 w-3/4 h-1 mx-auto rounded mt-3" />
+            </div>
           );
         })}
     </>

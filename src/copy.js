@@ -1,6 +1,7 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
+import { FaCopy } from "react-icons/fa";
 
 const Copy = ({ link, shorten, idx }) => {
   const [copied, setCopied] = useState(false);
@@ -16,23 +17,23 @@ const Copy = ({ link, shorten, idx }) => {
 
   return (
     <div
-      className="flex justify-center items-center grid grid-cols-3 gap-1"
+      className="flex justify-center items-center grid grid-cols-3 ml-64"
       key={idx}
     >
-      <div className="border-2 border-slate-400 rounded-lg p-2 mt-5 mr-20 ">
+      <div className="border-2 border-slate-400 rounded-lg p-2 mt-5 mr-6 ml-15">
         <p className="text-gray-700 font-sans font-medium break-all flex-nowrap">
           {link}
         </p>
       </div>
 
-      <div className="border-2 border-slate-400 rounded-lg p-2 mt-5 mr-20 ">
+      <div className="border-2 border-slate-400 rounded-lg p-2 mt-5 mr-10 ml-0 ">
         <p className="text-gray-700 font-sans font-medium break-all flex-nowrap">
           {shorten}
         </p>
       </div>
 
       <CopyToClipboard text={shorten} onCopy={() => setCopied(true)}>
-        <button
+        {/* <button
           className={
             copied
               ? "text-gray-400"
@@ -41,7 +42,14 @@ const Copy = ({ link, shorten, idx }) => {
           //className={copied ? "copied" : ""}
         >
           Copy
-        </button>
+        </button> */}
+        <FaCopy
+          className={
+            copied
+              ? "fil-gray-400"
+              : "fill-teal-600 hover:fill-teal-400 h-7 mr-32"
+          }
+        />
       </CopyToClipboard>
     </div>
   );
