@@ -1,25 +1,10 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState } from "react";
 
-const UrlShortener = ({ setInputVal }) => {
+const URLShortener = ({ setCurrentOriginalLink }) => {
   const [val, setVal] = useState("");
-  const inputRef = useRef();
-
-  //**** This won't work as its a react project ****/
-
-  //   const input = document.getElementById("myInput");
-
-  //   input.addEventListener("keypress", function (event) {
-  //     if (event.key === "Enter") {
-  //       event.preventDefault();
-  //       document.getElementById("submitButton").onClick();
-  //     }
-  //   });
 
   const handleClick = () => {
-    //console.log(val)
-    //localStorage.setItem("inputVal", val);
-
-    setInputVal(val);
+    setCurrentOriginalLink(val);
     setVal("");
   };
 
@@ -60,4 +45,4 @@ const UrlShortener = ({ setInputVal }) => {
   );
 };
 
-export default UrlShortener;
+export default URLShortener;
