@@ -7,14 +7,8 @@ const URLShortener = ({ setCurrentOriginalLink }) => {
   const [val, setVal] = useState("");
 
   const handleClick = () => {
-    try {
-      const url = new URL(val);
-      console.log(url);
-      setCurrentOriginalLink(val);
-      setVal("");
-    } catch (e) {
-      toast.error("Invalid Link", { toastId: "error" });
-    }
+    setCurrentOriginalLink(val);
+    setVal("");
   };
 
   return (

@@ -5,6 +5,7 @@ const linkSchema = new Schema(
     originalLink: {
       type: String,
       required: true,
+      unique: true,
     },
     shortLink: {
       type: String,
