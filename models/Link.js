@@ -9,6 +9,7 @@ const linkSchema = new Schema(
     shortLink: {
       type: String,
       required: true,
+      index: true,
     },
   },
   {

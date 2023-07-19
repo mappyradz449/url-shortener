@@ -4,6 +4,7 @@ import LinkHistory from "@/components/LinkHistory";
 import Navbar from "@/components/Navbar";
 import URLShortener from "@/components/URLShortener";
 import { useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 function AppContainer() {
   const [currentOriginalLink, setCurrentOriginalLink] = useState("");
@@ -20,6 +21,7 @@ function AppContainer() {
         <LinkHistory currentOriginalLink={currentOriginalLink} />
       </div>
       <Footer />
+      <ToastContainer />
     </div>
   );
 }

@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 const ShortenedLink = ({ url }) => {
   const showToastMsg = () => {
     //alert("copied");
-    toast("Link Copied!");
+    toast("Link Copied!", { toastId: "Link copied" });
   };
 
   return (
@@ -27,7 +27,7 @@ const ShortenedLink = ({ url }) => {
           className={"fill-blueGray-500 hover:fill-blueGray-600 h-7 mx-1"}
         />
       </CopyToClipboard>
-      <ToastContainer
+      {/* <ToastContainer
         position="top-center"
         autoClose={4000}
         hideProgressBar={false}
@@ -38,7 +38,7 @@ const ShortenedLink = ({ url }) => {
         draggable
         pauseOnHover
         theme="light"
-      />
+      /> */}
     </div>
   );
 };

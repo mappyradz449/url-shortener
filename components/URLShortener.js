@@ -1,12 +1,20 @@
 import React, { useState } from "react";
 import { BiLink } from "react-icons/bi";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const URLShortener = ({ setCurrentOriginalLink }) => {
   const [val, setVal] = useState("");
 
   const handleClick = () => {
-    setCurrentOriginalLink(val);
-    setVal("");
+    try {
+      const url = new URL(val);
+      console.log(url);
+      setCurrentOriginalLink(val);
+      setVal("");
+    } catch (e) {
+      toast.error("Invalid Link", { toastId: "error" });
+    }
   };
 
   return (
@@ -39,6 +47,7 @@ const URLShortener = ({ setCurrentOriginalLink }) => {
           Shorten
         </button>
       </form>
+      {/* <ToastContainer /> */}
     </div>
   );
 };

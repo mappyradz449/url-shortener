@@ -4,6 +4,7 @@ const nextConfig = {
     esmExternals: "loose",
     serverComponentsExternalPackages: ["mongoose"],
   },
+  basePath: "",
   reactStrictMode: true,
 };
 
