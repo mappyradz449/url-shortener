@@ -8,14 +8,14 @@ const Navbar = () => {
     <nav className="flex items-center mx-auto">
       <Image
         className="cursor-pointer"
-        src="/images/logo.png"
+        src="/images/logo-2.png"
         width={208}
         height={152}
         alt="Logo"
       />
       <div className="flex-1 text-right">
         <ul>
-          <li className="inline-block list-none px-2">
+          <li className="inline-block px-2 list-none">
             <a href="#">
               <FaFacebook
                 className={
@@ -24,7 +24,7 @@ const Navbar = () => {
               />
             </a>
           </li>
-          <li className="inline-block list-none px-2">
+          <li className="inline-block px-2 list-none">
             <a href="#">
               <RiInstagramFill
                 className={
@@ -33,9 +33,9 @@ const Navbar = () => {
               />
             </a>
           </li>
-          <li className="inline-block list-none px-2">
+          <li className="inline-block px-2 list-none">
             <a
-              className="text-3xl text-blueGray-400 font-semibold mx-5 hover:text-blueGray-100"
+              className="mx-5 text-3xl font-semibold text-blueGray-400 hover:text-blueGray-100"
               href="#"
             >
               About

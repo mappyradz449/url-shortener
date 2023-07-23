@@ -11,10 +11,13 @@ const ShortenedLink = ({ url }) => {
   };
 
   return (
-    <div className="border-2 border-blueGray-500 rounded-lg p-2 flex justify-between mx-3 my-3">
-      <p className="text-gray-700 font-sans font-medium break-all flex-nowrap flex-grow">
+    <div className="flex justify-between p-2 mx-3 my-3 border-2 rounded-lg border-blueGray-500">
+      <a
+        className="flex-grow font-sans font-medium break-all text-blueGray-600 flex-nowrap"
+        href={url}
+      >
         {url}
-      </p>
+      </a>
       <CopyToClipboard
         text={url}
         onCopy={() => {
@@ -27,18 +30,6 @@ const ShortenedLink = ({ url }) => {
           className={"fill-blueGray-500 hover:fill-blueGray-600 h-7 mx-1"}
         />
       </CopyToClipboard>
-      {/* <ToastContainer
-        position="top-center"
-        autoClose={4000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      /> */}
     </div>
   );
 };
