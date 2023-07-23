@@ -10,18 +10,18 @@ function AppContainer() {
   const [currentOriginalLink, setCurrentOriginalLink] = useState("");
 
   return (
-    <div className="text-gray-700 bg-blueGray-500 min-h-screen justify-between">
+    <div className="min-h-screen text-gray-700 bg-blueGray-500">
       <div className="">
         <Navbar />
         <Header />
         <URLShortener setCurrentOriginalLink={setCurrentOriginalLink} />
       </div>
 
-      <div className="bg-blueGray-400 mt-10 mx-20 px-20 rounded-lg shadow-lg py-4 max-w-full md: min-w-fit">
+      <div className="px-2 py-4 mx-8 my-10 rounded-lg shadow-lg md:px-10 md:mx-20 bg-blueGray-400 md: min-w-fit">
         <LinkHistory currentOriginalLink={currentOriginalLink} />
       </div>
-      <Footer />
       <ToastContainer />
+      <Footer />
     </div>
   );
 }

@@ -2,10 +2,13 @@ import React from "react";
 
 const OriginalLink = ({ url }) => {
   return (
-    <div className="border-2 border-blueGray-500 rounded-lg p-3 m-3">
-      <p className="text-gray-700 font-sans font-medium break-all flex-nowrap">
+    <div className="p-3 m-3 border-2 rounded-lg border-blueGray-500">
+      <a
+        className="font-sans font-medium break-all text-blueGray-600 flex-nowrap"
+        href={url}
+      >
         {url}
-      </p>
+      </a>
     </div>
   );
 };

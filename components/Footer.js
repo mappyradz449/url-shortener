@@ -5,18 +5,18 @@ import Image from "next/image";
 
 const Footer = () => {
   return (
-    <div className="">
-      <footer className="bg-blueGray-400 h-56 mt-14 flex items-center">
+    <div className="bottom-0 w-full">
+      <div className="flex items-center w-full py-16 bg-blueGray-400">
         <Image
-          className="py-3 mx-3 px-3 cursor-pointer"
+          className="px-3 py-3 mx-3 mt-5 cursor-pointer"
           src="/images/footer.png"
           width={334}
           height={62}
           alt="Footer"
         />
-        <div className="flex-1 flex justify-end">
+        <div className="flex justify-end flex-1">
           <ul className="flex">
-            <li className="inline-block list-none px-2">
+            <li className="inline-block px-2 list-none">
               <a href="#">
                 <FaFacebook
                   className={
@@ -25,7 +25,7 @@ const Footer = () => {
                 />
               </a>
             </li>
-            <li className="inline-block list-none px-2">
+            <li className="inline-block px-2 list-none">
               <a href="#">
                 <RiInstagramFill
                   className={
@@ -36,7 +36,7 @@ const Footer = () => {
             </li>
           </ul>
         </div>
-      </footer>
+      </div>
     </div>
   );
 };

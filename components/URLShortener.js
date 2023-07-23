@@ -12,18 +12,18 @@ const URLShortener = ({ setCurrentOriginalLink }) => {
   };
 
   return (
-    <div className="flex mx-auto justify-center bg-blueGray-400 w-3/3 rounded-xl h-15 mt-8 max-w-lg">
+    <div className="flex justify-center px-2 mx-auto mt-8 max-w-fit bg-blueGray-400 w-3/3 rounded-xl h-15">
       <form
-        className="flex justify-center m-3"
+        className="flex flex-col justify-center m-3 md:flex-row"
         onSubmit={(e) => {
           e.preventDefault();
           handleClick();
         }}
       >
-        <div className="flex px-4 items-center relative text-blueGray-500">
-          <BiLink className="w-7 h-7 absolute ml-3" />
+        <div className="relative flex items-center mx-2 my-2 text-blueGray-500">
+          <BiLink className="absolute ml-3 w-7 h-7" />
           <input
-            className="bg-blueGray-200  px-10 py-2 rounded-xl font-sans font-semibold  text-blueGray-500"
+            className="px-10 py-2 font-sans font-semibold bg-blueGray-200 rounded-xl text-blueGray-500"
             // ref={inputRef}
             type="text"
             placeholder="Enter URL here...."
@@ -33,7 +33,7 @@ const URLShortener = ({ setCurrentOriginalLink }) => {
           />
         </div>
         <button
-          className="bg-blueGray-200 hover:bg-blueGray-500 hover:text-blueGray-100 px-10 py-2 rounded-xl ml-2 font-medium font-sans text-blueGray-500"
+          className="px-10 py-2 mx-2 my-2 font-sans font-semibold duration-150 bg-blueGray-200 hover:bg-blueGray-500 hover:text-blueGray-100 rounded-xl text-blueGray-500 active:scale-95 ease"
           type="submit"
           id="submitButton"
           onClick={handleClick}
